@@ -1,0 +1,194 @@
+.section {
+  position: relative;
+  padding: 130px 0;
+  background: var(--cream-light);
+}
+
+.container {
+  position: relative;
+
+  width: min(92%, 1440px);
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* =========================
+   IMAGE — RIGHT SIDE
+========================= */
+
+.imageWrap {
+  position: relative;
+
+  width: 82%;
+  height: clamp(560px, 65vw, 820px);
+
+  overflow: hidden;
+}
+
+.image {
+  object-fit: cover;
+
+  transition: transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageWrap:hover .image {
+  transform: scale(1.015);
+}
+
+/* =========================
+   CONTENT — LEFT SIDE
+========================= */
+
+.content {
+  position: absolute;
+
+  left: 0;
+  bottom: 70px;
+
+  width: min(47%, 590px);
+
+  padding: clamp(45px, 5vw, 75px);
+
+  background: var(--cream);
+
+  z-index: 2;
+}
+
+.label {
+  display: block;
+
+  margin-bottom: 30px;
+
+  color: var(--gold);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.content h2 {
+  color: var(--green);
+
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 4.5vw, 72px);
+  font-weight: 400;
+
+  line-height: 0.94;
+  letter-spacing: -0.04em;
+}
+
+.content h2 em {
+  color: #be9b62;
+  font-weight: 400;
+}
+
+.content p {
+  max-width: 380px;
+
+  margin-top: 28px;
+
+  color: #74786f;
+
+  font-size: 11px;
+  line-height: 1.9;
+}
+
+/* =========================
+   LINK
+========================= */
+
+.link {
+  width: fit-content;
+
+  display: flex;
+  align-items: center;
+  gap: 25px;
+
+  margin-top: 32px;
+  padding-bottom: 8px;
+
+  border-bottom: 1px solid rgba(23, 60, 44, 0.7);
+
+  color: var(--green);
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+
+  transition: gap 0.3s ease;
+}
+
+.link:hover {
+  gap: 34px;
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 950px) {
+  .section {
+    padding: 100px 0;
+  }
+
+  .imageWrap {
+    width: 88%;
+    height: 650px;
+  }
+
+  .content {
+    width: 52%;
+
+    bottom: 45px;
+
+    padding: 45px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+  .section {
+    padding: 80px 0;
+  }
+
+  .container {
+    width: 90%;
+
+    display: block;
+  }
+
+  .imageWrap {
+    width: 100%;
+    height: 500px;
+  }
+
+  .content {
+    position: relative;
+
+    left: auto;
+    bottom: auto;
+
+    width: 92%;
+
+    margin: -70px auto 0 0;
+
+    padding: 38px 30px;
+  }
+
+  .label {
+    margin-bottom: 22px;
+  }
+
+  .content h2 {
+    font-size: clamp(44px, 12vw, 58px);
+  }
+}

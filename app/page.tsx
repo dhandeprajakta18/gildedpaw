@@ -6,6 +6,7 @@ import Craftsmanship from "@/components/Craftsmanship";
 import WhyGildedPaw from "@/components/WhyGildedPaw";
 import Newsletter from "@/components/Newsletter";
 import Footer from "@/components/Footer";
+import Lifestyle from "@/components/Lifestyle";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
       <Navbar />
       <Hero />
       <Intro />
-      <FeaturedCollection />
+      {/* <FeaturedCollection /> */}
+      <Lifestyle />
       <Craftsmanship />
       <WhyGildedPaw />
       <Newsletter />
