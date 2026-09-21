@@ -1,0 +1,328 @@
+.hero {
+  position: relative;
+
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 76% 43%,
+      rgba(185, 150, 101, 0.08),
+      transparent 27%
+    ),
+    var(--cream);
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+
+  padding: 130px 0 55px;
+}
+
+.content {
+  width: min(91%, 1440px);
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 0.88fr 1.12fr;
+
+  align-items: center;
+  gap: clamp(50px, 7vw, 120px);
+}
+
+/* ==============================
+   LEFT
+============================== */
+
+.copy {
+  position: relative;
+  z-index: 2;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin-bottom: 32px;
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 600;
+  line-height: 1.5;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+
+  width: 30px;
+  height: 1px;
+
+  background: var(--gold);
+}
+
+.copy h1 {
+  max-width: 720px;
+
+  color: var(--green-dark);
+
+  font-family: var(--font-heading);
+  font-size: clamp(62px, 6.3vw, 108px);
+  font-weight: 400;
+
+  line-height: 0.83;
+  letter-spacing: -0.045em;
+}
+
+.copy h1 em {
+  color: var(--gold);
+
+  font-weight: 400;
+}
+
+.description {
+  max-width: 440px;
+
+  margin-top: 36px;
+
+  color: #62685f;
+
+  font-size: 13px;
+  line-height: 1.9;
+
+  letter-spacing: 0.015em;
+}
+
+.cta {
+  width: fit-content;
+
+  margin-top: 34px;
+
+  display: flex;
+  align-items: center;
+  gap: 24px;
+
+  padding-bottom: 9px;
+
+  border-bottom: 1px solid var(--green);
+
+  color: var(--green);
+
+  font-size: 10px;
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+
+  transition: gap 0.3s ease;
+}
+
+.cta:hover {
+  gap: 32px;
+}
+
+.arrow {
+  font-size: 16px;
+  line-height: 1;
+}
+
+/* ==============================
+   RIGHT PRODUCT
+============================== */
+
+.visual {
+  position: relative;
+
+  min-width: 0;
+}
+
+.imageWrap {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1.16 / 1;
+}
+
+.productImage {
+  object-fit: contain;
+}
+
+.imageWrap:hover .productImage {
+  transform: translateY(-8px) scale(1.015);
+
+  filter: drop-shadow(0 45px 42px rgba(29, 48, 36, 0.17));
+}
+
+.productNumber {
+  position: absolute;
+  top: 3%;
+  right: 2%;
+
+  z-index: 2;
+
+  font-family: var(--font-heading);
+  font-size: 13px;
+
+  color: var(--gold);
+
+  letter-spacing: 0.1em;
+}
+
+.productInfo {
+  margin-top: 5px;
+
+  padding-top: 16px;
+
+  border-top: 1px solid rgba(23, 60, 44, 0.18);
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 30px;
+}
+
+.label {
+  display: block;
+
+  margin-bottom: 6px;
+
+  color: var(--gold);
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.productInfo p {
+  color: var(--green);
+
+  font-family: var(--font-heading);
+  font-size: 19px;
+}
+
+.material {
+  color: #787b73;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+
+  white-space: nowrap;
+}
+
+/* ==============================
+   SIDE DETAIL
+============================== */
+
+.sideText {
+  position: absolute;
+
+  left: 22px;
+  bottom: 45px;
+
+  color: rgba(23, 60, 44, 0.4);
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* ==============================
+   TABLET
+============================== */
+
+@media (max-width: 1050px) {
+  .content {
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 40px;
+  }
+
+  .copy h1 {
+    font-size: clamp(56px, 7vw, 80px);
+  }
+
+  .material {
+    display: none;
+  }
+}
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 800px) {
+  .hero {
+    min-height: auto;
+
+    padding: 125px 0 60px;
+  }
+
+  .content {
+    width: min(89%, 650px);
+
+    grid-template-columns: 1fr;
+
+    gap: 45px;
+  }
+
+  .eyebrow {
+    margin-bottom: 24px;
+  }
+
+  .copy h1 {
+    font-size: clamp(54px, 15vw, 78px);
+
+    line-height: 0.88;
+  }
+
+  .description {
+    margin-top: 28px;
+  }
+
+  .visual {
+    margin-top: 5px;
+  }
+
+  .imageWrap {
+    aspect-ratio: 1.15;
+  }
+
+  .productInfo {
+    margin-top: 10px;
+  }
+
+  .sideText {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 110px;
+  }
+
+  .copy h1 {
+    font-size: clamp(48px, 14.5vw, 65px);
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .productInfo p {
+    font-size: 17px;
+  }
+}

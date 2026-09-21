@@ -1,0 +1,92 @@
+.section {
+  padding: 135px 20px;
+
+  background: var(--green);
+
+  text-align: center;
+  color: var(--cream);
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  margin-bottom: 30px;
+
+  color: #c2a46f;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.inner h2 {
+  font-family: var(--font-heading);
+  font-size: clamp(55px, 6vw, 90px);
+  font-weight: 400;
+
+  line-height: 0.93;
+  letter-spacing: -0.04em;
+}
+
+.inner h2 em {
+  color: #c2a46f;
+  font-weight: 400;
+}
+
+.description {
+  margin: 30px auto 0;
+
+  color: rgba(244, 240, 231, 0.6);
+
+  font-size: 11px;
+  line-height: 1.8;
+}
+
+.form {
+  max-width: 520px;
+
+  margin: 45px auto 0;
+
+  display: flex;
+
+  border-bottom: 1px solid rgba(244, 240, 231, 0.55);
+}
+
+.form input {
+  width: 100%;
+
+  padding: 15px 0;
+
+  border: none;
+  outline: none;
+
+  background: transparent;
+
+  color: var(--cream);
+
+  font-size: 11px;
+}
+
+.form input::placeholder {
+  color: rgba(244, 240, 231, 0.45);
+}
+
+.form button {
+  border: none;
+
+  background: transparent;
+  color: var(--cream);
+
+  cursor: pointer;
+
+  font-size: 9px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
