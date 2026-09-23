@@ -1,0 +1,182 @@
+.page {
+  background: #f4f1e9;
+  color: #38352f;
+}
+
+.hero {
+  width: min(92%, 1450px);
+
+  margin: 0 auto;
+
+  padding: 110px 0 100px;
+}
+
+.hero > span {
+  color: #938a7c;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+}
+
+.hero h1 {
+  margin: 55px 0 35px;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(80px, 10vw, 155px);
+  font-weight: 400;
+
+  line-height: 0.75;
+
+  letter-spacing: -0.075em;
+}
+
+.hero h1 em {
+  color: #ad884a;
+
+  font-weight: 400;
+}
+
+.hero > p {
+  max-width: 350px;
+
+  margin-left: auto;
+
+  color: #797165;
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+.collections {
+  width: min(92%, 1450px);
+
+  margin: 0 auto;
+
+  padding-bottom: 120px;
+}
+
+.collection {
+  display: block;
+
+  padding: 25px 0 60px;
+
+  border-top: 1px solid rgba(70, 63, 51, 0.18);
+
+  color: inherit;
+}
+
+.imageWrapper {
+  position: relative;
+
+  width: 100%;
+  height: min(65vw, 720px);
+
+  overflow: hidden;
+
+  background: #e8e2d6;
+}
+
+.image {
+  object-fit: cover;
+
+  transition: transform 0.9s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.collection:hover .image {
+  transform: scale(1.025);
+}
+
+.info {
+  padding-top: 22px;
+
+  display: grid;
+  grid-template-columns: 70px 1fr auto;
+
+  align-items: start;
+}
+
+.info > span {
+  color: #a19889;
+
+  font-size: 8px;
+}
+
+.info h2 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(35px, 4vw, 60px);
+  font-weight: 400;
+
+  letter-spacing: -0.045em;
+}
+
+.info p {
+  margin-top: 6px;
+
+  color: #8c8477;
+
+  font-size: 8px;
+
+  letter-spacing: 0.1em;
+
+  text-transform: uppercase;
+}
+
+.info i {
+  width: 50px;
+  height: 50px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid #cfc7b9;
+  border-radius: 50%;
+
+  font-style: normal;
+
+  transition: 0.35s ease;
+}
+
+.collection:hover .info i {
+  border-color: #ad884a;
+
+  background: #ad884a;
+
+  color: white;
+
+  transform: rotate(45deg);
+}
+
+@media (max-width: 650px) {
+  .hero {
+    padding: 70px 0;
+  }
+
+  .hero h1 {
+    font-size: 19vw;
+  }
+
+  .hero > p {
+    margin-left: 0;
+  }
+
+  .imageWrapper {
+    height: 115vw;
+  }
+
+  .info {
+    grid-template-columns: 35px 1fr auto;
+  }
+
+  .info i {
+    width: 40px;
+    height: 40px;
+  }
+}

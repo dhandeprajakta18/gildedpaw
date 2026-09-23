@@ -33,7 +33,7 @@ export default function Hero() {
 
         {/* RIGHT PRODUCT */}
         <div className={styles.visual}>
-          <div className={styles.productNumber}>01</div>
+          {/* <div className={styles.productNumber}>01</div> */}
 
           <div className={styles.imageWrap}>
   <Image

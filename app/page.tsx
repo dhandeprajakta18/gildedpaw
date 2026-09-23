@@ -11,7 +11,7 @@ import Lifestyle from "@/components/Lifestyle";
 export default function Home() {
   return (
     <main>
-      <Navbar />
+      
       <Hero />
       <Intro />
       {/* <FeaturedCollection /> */}
@@ -19,7 +19,7 @@ export default function Home() {
       <Craftsmanship />
       <WhyGildedPaw />
       <Newsletter />
-      <Footer />
+     
     </main>
   );
 }

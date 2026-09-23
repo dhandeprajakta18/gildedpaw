@@ -1,5 +1,9 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
+
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -14,7 +18,11 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "Gilded Paw | Luxury Pet Furniture",
+  title: {
+    default: "Gilded Paw | Luxury Pet Furniture",
+    template: "%s | Gilded Paw",
+  },
+
   description:
     "Thoughtfully designed luxury furniture for pets and the homes they share.",
 };
@@ -27,7 +35,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${cormorant.variable} ${manrope.variable}`}>
-        {children}
+        <Navbar />
+
+        <main>{children}</main>
+
+        <Footer />
       </body>
     </html>
   );

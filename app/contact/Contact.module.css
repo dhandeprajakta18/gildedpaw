@@ -1,0 +1,637 @@
+.page {
+  background: #f7f4ed;
+  color: #37352f;
+}
+
+/* =========================================
+   CONTACT
+========================================= */
+
+.contact {
+  padding: 145px 0 120px;
+}
+
+.container {
+  width: min(88%, 1380px);
+  margin: 0 auto;
+}
+
+.grid {
+  display: grid;
+
+  grid-template-columns: 0.9fr 1.1fr;
+
+  gap: clamp(80px, 10vw, 170px);
+
+  align-items: start;
+}
+
+/* =========================================
+   INTRO
+========================================= */
+
+.intro {
+  position: sticky;
+  top: 120px;
+}
+
+.eyebrow {
+  display: block;
+
+  margin-bottom: 35px;
+
+  color: #ad884a;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.intro h1 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(62px, 6.5vw, 105px);
+  font-weight: 400;
+
+  line-height: 0.88;
+  letter-spacing: -0.055em;
+}
+
+.intro h1 em {
+  color: #ad884a;
+
+  font-weight: 400;
+}
+
+.description {
+  max-width: 410px;
+
+  margin: 40px 0 0;
+
+  color: #777064;
+
+  font-size: 12px;
+
+  line-height: 1.9;
+}
+
+/* =========================================
+   CONTACT DETAILS
+========================================= */
+
+.contactDetails {
+  max-width: 410px;
+
+  margin-top: 65px;
+
+  border-top: 1px solid rgba(68, 60, 46, 0.16);
+}
+
+.detail {
+  display: grid;
+
+  grid-template-columns: 140px 1fr;
+
+  gap: 25px;
+
+  padding: 20px 0;
+
+  border-bottom: 1px solid rgba(68, 60, 46, 0.12);
+}
+
+.detail > span {
+  color: #9a9285;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.detail p,
+.detail a {
+  margin: 0;
+
+  color: #4d4941;
+
+  font-family: var(--font-display);
+
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.detail a {
+  transition: color 0.25s ease;
+}
+
+.detail a:hover {
+  color: #ad884a;
+}
+
+.socials {
+  display: flex;
+  flex-direction: column;
+
+  gap: 6px;
+}
+
+/* =========================================
+   FORM SIDE
+========================================= */
+
+.formSide {
+  padding-top: 7px;
+}
+
+.formHeading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 22px;
+
+  border-bottom: 1px solid rgba(68, 60, 46, 0.2);
+
+  color: #8d8578;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  position: relative;
+
+  padding: 27px 0 22px;
+
+  border-bottom: 1px solid rgba(68, 60, 46, 0.16);
+}
+
+.field label {
+  display: block;
+
+  margin-bottom: 13px;
+
+  color: #91897c;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.field input,
+.field textarea,
+.field select {
+  width: 100%;
+
+  padding: 0;
+
+  border: 0;
+  outline: 0;
+
+  background: transparent;
+
+  color: #37352f;
+
+  font-family: var(--font-display);
+
+  font-size: 22px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+.field textarea {
+  min-height: 125px;
+
+  resize: none;
+}
+
+.field select {
+  appearance: none;
+
+  cursor: pointer;
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #b0a99e;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.submit {
+  width: 100%;
+
+  margin-top: 35px;
+
+  padding: 21px 24px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border: 1px solid #173c2c;
+
+  background: #173c2c;
+
+  color: #f7f4ed;
+
+  cursor: pointer;
+
+  font-size: 8px;
+  font-weight: 700;
+
+  letter-spacing: 0.17em;
+  text-transform: uppercase;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
+}
+
+.submitArrow {
+  color: #c3a36a;
+
+  font-family: var(--font-display);
+
+  font-size: 18px;
+
+  transition: transform 0.3s ease;
+}
+
+.submit:hover {
+  background: transparent;
+
+  color: #173c2c;
+}
+
+.submit:hover .submitArrow {
+  transform: translate(4px, -4px);
+}
+
+.response {
+  margin: 15px 0 0;
+
+  color: #a0988b;
+
+  font-size: 7px;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================
+   INFORMATION STRIP
+========================================= */
+
+.infoStrip {
+  border-top: 1px solid rgba(68, 60, 46, 0.14);
+  border-bottom: 1px solid rgba(68, 60, 46, 0.14);
+}
+
+.infoContainer {
+  width: min(88%, 1380px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.infoContainer > div {
+  display: grid;
+
+  grid-template-columns: 35px 1fr;
+
+  gap: 15px;
+
+  padding: 38px 35px;
+}
+
+.infoContainer > div:first-child {
+  padding-left: 0;
+}
+
+.infoContainer > div + div {
+  border-left: 1px solid rgba(68, 60, 46, 0.14);
+}
+
+.infoContainer > div > span {
+  padding-top: 2px;
+
+  color: #ad884a;
+
+  font-size: 7px;
+  font-weight: 700;
+}
+
+.infoContainer small {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #938a7b;
+
+  font-size: 7px;
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.infoContainer p {
+  margin: 0;
+
+  color: #4b473f;
+
+  font-family: var(--font-display);
+
+  font-size: 17px;
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 950px) {
+  .contact {
+    padding-top: 120px;
+  }
+
+  .grid {
+    gap: 70px;
+  }
+
+  .intro h1 {
+    font-size: clamp(58px, 8vw, 85px);
+  }
+
+  .detail {
+    grid-template-columns: 110px 1fr;
+  }
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .contact {
+    padding: 95px 0 75px;
+  }
+
+  .container,
+  .infoContainer {
+    width: 88%;
+  }
+
+  .grid {
+    display: block;
+  }
+
+  .intro {
+    position: static;
+  }
+
+  .intro h1 {
+    font-size: clamp(58px, 17vw, 78px);
+
+    line-height: 0.9;
+  }
+
+  .description {
+    margin-top: 30px;
+  }
+
+  .contactDetails {
+    margin-top: 45px;
+  }
+
+  .formSide {
+    margin-top: 75px;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 20px;
+  }
+
+  .infoContainer {
+    display: block;
+  }
+
+  .infoContainer > div {
+    padding: 28px 0;
+  }
+
+  .infoContainer > div + div {
+    border-top: 1px solid rgba(68, 60, 46, 0.14);
+    border-left: 0;
+  }
+}
+/* =========================================
+   TYPOGRAPHY SIZE IMPROVEMENTS
+========================================= */
+
+/* Small gold heading above main title */
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.18em;
+}
+
+/* Description below main heading */
+.description {
+  max-width: 440px;
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+/* =========================================
+   CONTACT DETAILS
+========================================= */
+
+.detail > span {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+}
+
+.detail p,
+.detail a {
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.formHeading {
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.field {
+  padding: 30px 0 25px;
+}
+
+.field label {
+  margin-bottom: 14px;
+
+  font-size: 10px;
+  letter-spacing: 0.13em;
+}
+
+/* User entered text */
+.field input,
+.field textarea,
+.field select {
+  font-size: 21px;
+}
+
+/* Placeholder */
+.field input::placeholder,
+.field textarea::placeholder {
+  font-size: 20px;
+}
+
+/* =========================================
+   BUTTON
+========================================= */
+
+.submit {
+  padding: 22px 25px;
+
+  font-size: 11px;
+  letter-spacing: 0.15em;
+}
+
+.submitArrow {
+  font-size: 20px;
+}
+
+/* Text under button */
+
+.response {
+  margin-top: 17px;
+
+  font-size: 10px;
+  line-height: 1.5;
+
+  letter-spacing: 0.05em;
+}
+
+/* =========================================
+   INFORMATION STRIP
+========================================= */
+
+.infoContainer > div {
+  grid-template-columns: 42px 1fr;
+
+  padding-top: 42px;
+  padding-bottom: 42px;
+}
+
+/* 01 / 02 / 03 */
+
+.infoContainer > div > span {
+  font-size: 10px;
+}
+
+/* Heading */
+
+.infoContainer small {
+  margin-bottom: 8px;
+
+  font-size: 10px;
+
+  letter-spacing: 0.12em;
+}
+
+/* Description */
+
+.infoContainer p {
+  font-size: 19px;
+  line-height: 1.35;
+}
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+  .eyebrow {
+    font-size: 10px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .detail > span {
+    font-size: 9px;
+  }
+
+  .detail p,
+  .detail a {
+    font-size: 17px;
+  }
+
+  .formHeading {
+    font-size: 10px;
+  }
+
+  .field label {
+    font-size: 9px;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 19px;
+  }
+
+  .field input::placeholder,
+  .field textarea::placeholder {
+    font-size: 18px;
+  }
+
+  .submit {
+    font-size: 10px;
+  }
+
+  .response {
+    font-size: 9px;
+  }
+
+  .infoContainer > div > span,
+  .infoContainer small {
+    font-size: 9px;
+  }
+
+  .infoContainer p {
+    font-size: 18px;
+  }
+}

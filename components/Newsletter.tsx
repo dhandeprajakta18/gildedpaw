@@ -4,7 +4,7 @@ export default function Newsletter() {
   return (
     <section className={styles.section}>
       <div className={styles.inner}>
-        <p className={styles.eyebrow}>The Gilded Journal</p>
+        {/* <p className={styles.eyebrow}>The Gilded Journal</p> */}
 
         <h2>
           For people who make

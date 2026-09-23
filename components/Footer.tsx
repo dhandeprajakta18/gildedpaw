@@ -7,38 +7,40 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* TOP */}
+        {/* TOP STATEMENT */}
         <div className={styles.top}>
-          <div className={styles.intro}>
-            <span className={styles.eyebrow}>Gilded Paw</span>
+          <div className={styles.statement}>
+            
 
             <h2>
-              Made for their comfort.
+              Beautifully considered.
               <br />
-              <em>Designed for your world.</em>
+              <em>Made to belong.</em>
             </h2>
           </div>
 
-          <Link href="/shop" className={styles.shopLink}>
-            <span>Explore Collection</span>
+          <Link href="/shop" className={styles.explore}>
+            <span>Explore the collection</span>
             <span className={styles.arrow}>↗</span>
           </Link>
         </div>
 
-        {/* MIDDLE */}
-        <div className={styles.middle}>
-          <div className={styles.note}>
+        {/* DETAILS */}
+        <div className={styles.details}>
+          <div className={styles.about}>
+            <div className={styles.monogram}>GP</div>
+
             <p>
-              Thoughtfully designed furniture for pets and the beautiful
-              homes they share.
+              Thoughtfully designed furniture for pets,
+              created to live beautifully within your home.
             </p>
 
-            <span>Mumbai · India</span>
+            <span className={styles.location}>Mumbai · India</span>
           </div>
 
           <div className={styles.navigation}>
             <div className={styles.column}>
-              <span className={styles.columnTitle}>Explore</span>
+              <span className={styles.columnTitle}>Discover</span>
 
               <Link href="/shop">Shop</Link>
               <Link href="/collections">Collections</Link>
@@ -47,7 +49,7 @@ export default function Footer() {
             </div>
 
             <div className={styles.column}>
-              <span className={styles.columnTitle}>Information</span>
+              <span className={styles.columnTitle}>Client Care</span>
 
               <Link href="/shipping">Shipping & Delivery</Link>
               <Link href="/care">Product Care</Link>
@@ -56,44 +58,61 @@ export default function Footer() {
             </div>
 
             <div className={styles.column}>
-              <span className={styles.columnTitle}>Social</span>
+              <span className={styles.columnTitle}>Follow</span>
 
               <a href="#" target="_blank" rel="noreferrer">
-                Instagram ↗
+                Instagram <span>↗</span>
               </a>
 
               <a href="#" target="_blank" rel="noreferrer">
-                Pinterest ↗
+                Pinterest <span>↗</span>
               </a>
             </div>
           </div>
         </div>
 
-        {/* LARGE BRAND */}
-        <div className={styles.brand}>
-          <span>GILDED</span>
+        {/* BRAND */}
+      {/* ELEGANT SIGNATURE */}
+{/* <div className={styles.signature}>
+  <div className={styles.ornament}>
+    <span className={styles.line} />
+    <span className={styles.diamond}>◆</span>
+    <span className={styles.centerMark}>GP</span>
+    <span className={styles.diamond}>◆</span>
+    <span className={styles.line} />
+  </div>
 
-          <span className={styles.paw}>PAW</span>
-        </div>
+  <p>Furniture for distinguished companions.</p>
 
-        {/* BOTTOM */}
-        <div className={styles.bottom}>
-          <span>© 2026 Gilded Paw</span>
+  <span className={styles.signatureSub}>
+    Thoughtfully crafted · Beautifully at home
+  </span>
+</div> */}
 
-          <span>Furniture for distinguished companions.</span>
+{/* BOTTOM */}
+<div className={styles.bottom}>
+  <span>© 2026 Gilded Paw</span>
 
-          <button
-            type="button"
-            onClick={() =>
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              })
-            }
-          >
-            Back to top ↑
-          </button>
-        </div>
+  <div className={styles.legal}>
+    <Link href="/privacy">Privacy</Link>
+    <span>·</span>
+    <Link href="/terms">Terms</Link>
+  </div>
+
+  <button
+    type="button"
+    onClick={() =>
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      })
+    }
+  >
+    Back to top <span>↑</span>
+  </button>
+</div>
+
+      
       </div>
     </footer>
   );
