@@ -192,3 +192,110 @@
     font-size: clamp(44px, 12vw, 58px);
   }
 }
+/* ==========================================
+   SUBTLE SCROLL REVEAL
+========================================== */
+
+/* Image — fade only, no movement */
+
+.imageWrap {
+  opacity: 0;
+
+  transition: opacity 1.1s ease;
+}
+
+.visible .imageWrap {
+  opacity: 1;
+}
+
+
+/* ==========================================
+   HEADING
+========================================== */
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+
+  padding-bottom: 0.05em;
+  margin-bottom: -0.05em;
+}
+
+.titleLine > span {
+  display: block;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible .titleLine:nth-child(1) > span {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.12s;
+}
+
+.visible .titleLine:nth-child(2) > span {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.2s;
+}
+
+
+/* ==========================================
+   DESCRIPTION
+========================================== */
+
+.content > p {
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.8s ease 0.3s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.3s;
+}
+
+.visible .content > p {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   LINK
+========================================== */
+
+.link {
+  opacity: 0;
+  transform: translateY(6px);
+
+  transition:
+    opacity 0.7s ease 0.4s,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.4s;
+}
+
+.visible .link {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .imageWrap,
+  .titleLine > span,
+  .content > p,
+  .link {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

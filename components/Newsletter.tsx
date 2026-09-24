@@ -1,15 +1,52 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./Newsletter.module.css";
 
 export default function Newsletter() {
-  return (
-    <section className={styles.section}>
-      <div className={styles.inner}>
-        {/* <p className={styles.eyebrow}>The Gilded Journal</p> */}
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
 
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.22,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${
+        isVisible ? styles.visible : ""
+      }`}
+    >
+      <div className={styles.inner}>
         <h2>
-          For people who make
-          <br />
-          room for <em>beautiful things.</em>
+          <span className={styles.titleLine}>
+            <span>For people who make</span>
+          </span>
+
+          <span className={styles.titleLine}>
+            <span>
+              room for <em>beautiful things.</em>
+            </span>
+          </span>
         </h2>
 
         <p className={styles.description}>
@@ -24,7 +61,7 @@ export default function Newsletter() {
             aria-label="Email address"
           />
 
-          <button type="submit">Join ↗</button>
+          <button type="submit">Join </button>
         </form>
       </div>
     </section>

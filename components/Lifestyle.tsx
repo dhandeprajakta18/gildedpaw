@@ -1,11 +1,43 @@
-//components/Lifestyle.tsx
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Lifestyle.module.css";
 
 export default function Lifestyle() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.2,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${
+        isVisible ? styles.visible : ""
+      }`}
+    >
       <div className={styles.container}>
         <div className={styles.imageWrap}>
           <Image
@@ -18,12 +50,16 @@ export default function Lifestyle() {
         </div>
 
         <div className={styles.content}>
-          {/* <span className={styles.label}>Living Together</span> */}
-
           <h2>
-            Their space,
-            <br />
-            <em>beautifully considered.</em>
+            <span className={styles.titleLine}>
+              <span>Their space,</span>
+            </span>
+
+            <span className={styles.titleLine}>
+              <span>
+                <em>beautifully considered.</em>
+              </span>
+            </span>
           </h2>
 
           <p>
@@ -33,7 +69,6 @@ export default function Lifestyle() {
 
           <Link href="/collections" className={styles.link}>
             <span>Explore the collection</span>
-            <span>↗</span>
           </Link>
         </div>
       </div>

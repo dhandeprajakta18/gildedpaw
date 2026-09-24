@@ -1,19 +1,22 @@
+/* ==========================================
+   NAVBAR
+========================================== */
+
 .header {
   position: relative;
-  top: 0;
-  left: 0;
-
   width: 100%;
-  z-index: 20;
+  z-index: 100;
 
   background: var(--green);
   color: var(--cream);
 }
 
 .navbar {
+  position: relative;
+  z-index: 102;
+
   width: min(94%, 1440px);
   height: 92px;
-
   margin: 0 auto;
 
   display: grid;
@@ -21,9 +24,10 @@
   align-items: center;
 }
 
-/* =========================
-   NAV LINKS
-========================= */
+
+/* ==========================================
+   DESKTOP LINKS
+========================================== */
 
 .left,
 .right {
@@ -51,8 +55,6 @@
   transition: color 0.3s ease;
 }
 
-/* Underline */
-
 .left a:not(.cart)::after,
 .right a:not(.cart)::after {
   content: "";
@@ -79,11 +81,15 @@
   width: 100%;
 }
 
-/* =========================
+
+/* ==========================================
    LOGO
-========================= */
+========================================== */
 
 .logo {
+  position: relative;
+  z-index: 103;
+
   color: #c6a875;
 
   font-family: var(--font-heading);
@@ -105,9 +111,10 @@
   color: #ead9b8;
 }
 
-/* =========================
-   BAG BUTTON
-========================= */
+
+/* ==========================================
+   BAG
+========================================== */
 
 .right .cart {
   display: flex;
@@ -119,7 +126,6 @@
   height: 42px;
 
   padding: 0 20px;
-
   margin-left: 5px;
 
   border: 1px solid #c5a76d;
@@ -136,8 +142,7 @@
   transition:
     background 0.3s ease,
     color 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
+    border-color 0.3s ease;
 }
 
 .right .cart::after {
@@ -146,63 +151,22 @@
 
 .right .cart span {
   color: #9d7c43;
-  opacity: 1;
 }
 
 .right .cart:hover {
   background: #c5a76d;
   border-color: #c5a76d;
-
   color: var(--green);
-
-  transform: translateY(-2px);
 }
 
 .right .cart:hover span {
   color: var(--green);
 }
 
-/* =========================
-   MOBILE
-========================= */
 
-@media (max-width: 850px) {
-  .navbar {
-    height: 78px;
-
-    display: flex;
-    justify-content: space-between;
-  }
-
-  .left {
-    display: none;
-  }
-
-  .right {
-    gap: 0;
-  }
-
-  .right a:not(.cart) {
-    display: none;
-  }
-
-  .logo {
-    font-size: 20px;
-    letter-spacing: 0.2em;
-  }
-
-  .right .cart {
-    min-width: auto;
-    height: 38px;
-
-    padding: 0 16px;
-
-    font-size: 8px;
-  }
-}
-/* ==============================
-   SHOP DROPDOWN
-============================== */
+/* ==========================================
+   SHOP DROPDOWN — REFINED / COMPACT
+========================================== */
 
 .shopDropdown {
   position: relative;
@@ -211,14 +175,22 @@
 .shopTrigger {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 5px;
 }
+
+
+/* Small understated chevron */
 
 .chevron {
   position: relative;
   top: -1px;
 
-  font-size: 11px;
+  display: inline-block;
+
+  color: #c6a875;
+
+  font-size: 9px;
+  line-height: 1;
 
   transition: transform 0.3s ease;
 }
@@ -228,53 +200,59 @@
   transform: rotate(180deg);
 }
 
-/* DROPDOWN */
+
+/* ==========================================
+   DROPDOWN PANEL
+========================================== */
 
 .dropdownMenu {
   position: absolute;
 
-  top: calc(100% + 18px);
-  left: -22px;
+  top: calc(100% + 14px);
+  left: -16px;
 
-  width: 285px;
+  width: 218px;
 
-  padding: 8px;
+  padding: 5px;
 
-  background: #f7f4ed;
+  background: #f5f1e8;
 
-  border: 1px solid rgba(68, 60, 46, 0.12);
+  border: 1px solid rgba(23, 60, 44, 0.09);
 
   box-shadow:
-    0 20px 50px rgba(31, 38, 30, 0.08),
-    0 5px 15px rgba(31, 38, 30, 0.04);
+    0 14px 35px rgba(16, 45, 33, 0.07),
+    0 3px 10px rgba(16, 45, 33, 0.035);
 
   opacity: 0;
   visibility: hidden;
 
-  transform: translateY(8px);
+  transform: translateY(6px);
 
   transition:
-    opacity 0.25s ease,
-    visibility 0.25s ease,
-    transform 0.25s ease;
+    opacity 0.22s ease,
+    visibility 0.22s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 
-  z-index: 100;
+  z-index: 110;
 }
 
-/* invisible bridge prevents menu closing
-   while moving mouse from Shop to dropdown */
+
+/* Invisible hover bridge */
 
 .dropdownMenu::before {
   content: "";
 
   position: absolute;
 
+  top: -16px;
   left: 0;
-  top: -20px;
 
   width: 100%;
-  height: 20px;
+  height: 16px;
 }
+
+
+/* Open */
 
 .shopDropdown:hover .dropdownMenu,
 .shopDropdown:focus-within .dropdownMenu {
@@ -284,49 +262,54 @@
   transform: translateY(0);
 }
 
-/* ITEMS */
+
+/* ==========================================
+   DROPDOWN ITEM
+========================================== */
 
 .dropdownMenu > a {
-  display: grid;
+  position: relative;
 
-  grid-template-columns: 25px 1fr auto;
+  min-height: 52px;
 
+  padding: 10px 11px;
+
+  display: flex;
   align-items: center;
+  justify-content: space-between;
 
-  gap: 12px;
-
-  padding: 17px 14px;
-
-  color: #37352f;
+  color: #173c2c;
 
   transition:
     background 0.25s ease,
-    padding 0.25s ease;
+    color 0.25s ease;
 }
+
+
+/* Fine divider */
 
 .dropdownMenu > a + a {
-  border-top: 1px solid rgba(68, 60, 46, 0.1);
+  border-top: 1px solid rgba(23, 60, 44, 0.08);
 }
+
+
+/* Very subtle hover */
 
 .dropdownMenu > a:hover {
-  background: #efeae0;
-  padding-left: 18px;
+  background: rgba(23, 60, 44, 0.035);
 }
 
-.dropdownNumber {
-  color: #ad884a;
 
-  font-size: 7px;
-  font-weight: 600;
-
-  letter-spacing: 0.12em;
-}
+/* ==========================================
+   TEXT
+========================================== */
 
 .dropdownMenu strong {
   display: block;
 
-  font-family: var(--font-display);
+  color: #173c2c;
 
+  font-family: var(--font-heading);
   font-size: 18px;
   font-weight: 400;
 
@@ -336,33 +319,563 @@
 .dropdownMenu small {
   display: block;
 
-  margin-top: 4px;
+  margin-top: 5px;
 
-  color: #938a7b;
+  color: rgba(23, 60, 44, 0.52);
 
   font-size: 7px;
-  font-weight: 500;
+  font-weight: 600;
 
-  letter-spacing: 0.08em;
+  line-height: 1.3;
+
+  letter-spacing: 0.1em;
   text-transform: uppercase;
 }
 
-.dropdownArrow {
-  color: #ad884a;
 
-  font-size: 13px;
+/* ==========================================
+   SMALL ARROW
+========================================== */
+
+.dropdownArrow {
+  position: relative;
+
+  width: 13px;
+  height: 13px;
+
+  flex-shrink: 0;
 
   opacity: 0;
 
-  transform: translate(-4px, 4px);
+  transform: translateX(-3px);
 
   transition:
     opacity 0.25s ease,
-    transform 0.25s ease;
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.dropdownMenu a:hover .dropdownArrow {
-  opacity: 1;
 
-  transform: translate(0, 0);
+/* Create arrow with CSS */
+
+.dropdownArrow::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #a88750;
+
+  font-family: sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.dropdownMenu > a:hover .dropdownArrow {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* ==========================================
+   MOBILE ELEMENTS — HIDDEN ON DESKTOP
+========================================== */
+
+.mobileActions,
+.mobileMenu {
+  display: none;
+}
+
+
+@media (max-width: 850px) {
+
+  .navbar {
+
+    width: 90%;
+
+    height: 72px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+  }
+
+  .left,
+
+  .right {
+
+    display: none;
+
+  }
+
+  /* =========================
+
+     LOGO
+
+  ========================= */
+
+  .logo {
+
+    font-size: 17px;
+
+    letter-spacing: 0.18em;
+
+  }
+
+  .logo span {
+
+    margin-left: 4px;
+
+  }
+
+  /* =========================
+
+     RIGHT MOBILE AREA
+
+  ========================= */
+
+  .mobileActions {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+  }
+
+  .mobileBag {
+
+    color: var(--cream);
+
+    font-size: 8px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+  }
+
+  .mobileBag span {
+
+    color: var(--gold);
+
+  }
+
+  /* =========================
+
+     HAMBURGER
+
+  ========================= */
+
+  .menuButton {
+
+    width: 25px;
+
+    height: 20px;
+
+    padding: 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 6px;
+
+    border: 0;
+
+    background: transparent;
+
+    cursor: pointer;
+
+  }
+
+  .menuButton span {
+
+    display: block;
+
+    height: 1px;
+
+    background: var(--cream);
+
+    transition: transform 0.35s ease, width 0.35s ease;
+
+  }
+
+  .menuButton span:first-child {
+
+    width: 25px;
+
+  }
+
+  .menuButton span:last-child {
+
+    width: 17px;
+
+  }
+
+  .menuButtonOpen span {
+
+    width: 24px !important;
+
+  }
+
+  .menuButtonOpen span:first-child {
+
+    transform: translateY(3.5px) rotate(45deg);
+
+  }
+
+  .menuButtonOpen span:last-child {
+
+    transform: translateY(-3.5px) rotate(-45deg);
+
+  }
+
+  /* =========================
+
+     MOBILE MENU
+
+  ========================= */
+
+  .mobileMenu {
+
+    position: absolute;
+
+    display: block;
+
+    top: 72px;
+
+    left: 0;
+
+    width: 100%;
+
+    background: #f5f1e8;
+
+    color: var(--green-dark);
+
+    max-height: 0;
+
+    overflow: hidden;
+
+    opacity: 0;
+
+    transition:
+
+      max-height 0.55s cubic-bezier(0.16, 1, 0.3, 1),
+
+      opacity 0.3s ease;
+
+    z-index: 101;
+
+  }
+
+  .mobileMenuOpen {
+
+    max-height: calc(100vh - 72px);
+
+    opacity: 1;
+
+  }
+
+  .mobileMenuInner {
+
+    width: 90%;
+
+    margin: 0 auto;
+
+    padding: 22px 0 30px;
+
+  }
+
+  /* =========================
+
+     NAVIGATION / GILDED PAW
+
+  ========================= */
+
+  .mobileMenuTop {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid rgba(23, 60, 44, 0.15);
+
+    color: #8c887e;
+
+    font-size: 7px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.16em;
+
+    text-transform: uppercase;
+
+  }
+
+  /* =========================
+
+     MAIN LINKS
+
+  ========================= */
+
+  .mobileLinks > a,
+
+  .mobileShopTrigger {
+
+    width: 100%;
+
+    min-height: 58px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    padding: 0;
+
+    border: 0;
+
+    border-bottom: 1px solid rgba(23, 60, 44, 0.14);
+
+    background: transparent;
+
+    color: var(--green-dark);
+
+    font-family: var(--font-heading);
+
+    /* MUCH SMALLER */
+
+    font-size: 27px;
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    text-align: left;
+
+    cursor: pointer;
+
+  }
+
+  .mobileArrow {
+
+    color: var(--gold);
+
+    font-family: sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 300;
+
+  }
+
+  /* =========================
+
+     SHOP +
+
+  ========================= */
+
+  .mobilePlus {
+
+    color: var(--gold);
+
+    font-family: sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 300;
+
+    transition: transform 0.35s ease;
+
+  }
+
+  .mobilePlusOpen {
+
+    transform: rotate(45deg);
+
+  }
+
+  /* =========================
+   DOG / CAT SUBMENU
+========================= */
+
+.mobileShopMenu {
+  display: grid;
+  grid-template-rows: 0fr;
+
+  overflow: hidden;
+
+  background: rgba(23, 60, 44, 0.025);
+
+  transition:
+    grid-template-rows 0.4s
+    cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobileShopMenuOpen {
+  grid-template-rows: 1fr;
+}
+
+.mobileShopMenuInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.mobileShopMenuInner > a {
+  min-height: 44px;
+
+  padding: 0 15px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color: var(--green);
+
+  border-bottom: 1px solid rgba(23, 60, 44, 0.08);
+}
+
+.mobileShopMenuInner span {
+  font-family: var(--font-heading);
+  font-size: 17px;
+}
+
+.mobileShopMenuInner small {
+  color: #908b80;
+
+  font-size: 6px;
+  font-weight: 600;
+
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+  /* =========================
+
+     BOTTOM
+
+  ========================= */
+
+  .mobileMenuBottom {
+
+    padding-top: 25px;
+
+  }
+
+  .mobileMenuBottom p {
+
+    max-width: 220px;
+
+    color: #74766e;
+
+    font-size: 10px;
+
+    line-height: 1.6;
+
+  }
+
+  .mobileMenuBottom > a {
+
+    width: fit-content;
+
+    margin-top: 15px;
+
+    padding-bottom: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    border-bottom: 1px solid var(--green);
+
+    color: var(--green);
+
+    font-size: 7px;
+
+    font-weight: 700;
+
+    letter-spacing: 0.14em;
+
+    text-transform: uppercase;
+
+  }
+
+}
+
+
+/* ==========================================
+   SMALL PHONES
+========================================== */
+
+@media (max-width: 480px) {
+  .navbar,
+  .mobileMenuInner {
+    width: 88%;
+  }
+
+  .navbar {
+    height: 68px;
+  }
+
+  .logo {
+    font-size: 15px;
+    letter-spacing: 0.16em;
+  }
+
+  .mobileActions {
+    gap: 13px;
+  }
+
+  .mobileMenu {
+    top: 68px;
+  }
+
+  .mobileMenuOpen {
+    max-height: calc(100vh - 68px);
+  }
+
+ .mobileLinks > a,
+
+.mobileShopTrigger {
+
+  min-height: 54px;
+
+  font-size: 24px;
+
+}
+.mobileShopMenuInner small {
+  display: none;
+}
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .mobileMenu,
+  .menuButton span,
+  .mobilePlus,
+  .mobileShopMenu {
+    transition: none;
+  }
 }

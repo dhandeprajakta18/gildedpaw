@@ -1,3 +1,6 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import styles from "./WhyGildedPaw.module.css";
 
 const values = [
@@ -24,16 +27,50 @@ const values = [
 ];
 
 export default function WhyGildedPaw() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.18,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${
+        isVisible ? styles.visible : ""
+      }`}
+    >
       <div className={styles.container}>
         <div className={styles.heading}>
-          {/* <p>Why Gilded Paw</p> */}
-
           <h2>
-            Because they belong
-            <br />
-            <em>everywhere you do.</em>
+            <span className={styles.headingLine}>
+              <span>Because they belong</span>
+            </span>
+
+            <span className={styles.headingLine}>
+              <span>
+                <em>everywhere you do.</em>
+              </span>
+            </span>
           </h2>
         </div>
 

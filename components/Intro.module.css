@@ -227,3 +227,297 @@
     margin-bottom: 14px;
   }
 }
+
+/* ==========================================
+   SCROLL REVEAL
+========================================== */
+
+/* Philosophy label */
+
+.eyebrow {
+  opacity: 0;
+  transform: translateY(8px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible .eyebrow {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Divider line */
+
+.line {
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition:
+    transform 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.08s;
+}
+
+.visible .line {
+  transform: scaleX(1);
+}
+
+
+/* ==========================================
+   HEADING REVEAL
+========================================== */
+
+.headingLine {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.07em;
+  margin-bottom: -0.07em;
+}
+
+.headingLine > span {
+  display: block;
+
+  transform: translateY(105%);
+
+  transition:
+    transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible .headingLine:nth-child(1) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.12s;
+}
+
+.visible .headingLine:nth-child(2) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.22s;
+}
+
+
+/* ==========================================
+   BODY COPY
+========================================== */
+
+.copy {
+  opacity: 0;
+  transform: translateY(14px);
+
+  transition:
+    opacity 0.8s ease 0.32s,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.32s;
+}
+
+.visible .copy {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Lead sentence */
+
+.copyLead {
+  margin-bottom: 22px;
+
+  color: var(--cream) !important;
+
+  font-family: var(--font-heading);
+  font-size: 17px !important;
+  line-height: 1.45 !important;
+}
+
+
+/* ==========================================
+   LINK
+========================================== */
+
+.linkArrow {
+  display: inline-block;
+
+  color: #c0a16b;
+
+  font-size: 13px;
+
+  transition:
+    transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.link:hover .linkArrow {
+  transform: translate(3px, -3px);
+}
+
+
+/* ==========================================
+   EDITORIAL STATEMENT
+========================================== */
+
+.statement {
+  margin-top: 110px;
+
+  padding: 55px 0 60px;
+
+  display: grid;
+  grid-template-columns: 0.4fr 1.6fr;
+  gap: 50px;
+
+  border-top: 1px solid rgba(244, 240, 231, 0.17);
+
+  opacity: 0;
+  transform: translateY(16px);
+
+  transition:
+    opacity 0.9s ease 0.48s,
+    transform 1s cubic-bezier(0.22, 1, 0.36, 1) 0.48s;
+}
+
+.visible .statement {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.statementLabel {
+  padding-top: 9px;
+
+  color: #b99b67;
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.statement p {
+  max-width: 900px;
+
+  color: rgba(244, 240, 231, 0.88);
+
+  font-family: var(--font-heading);
+  font-size: clamp(32px, 3.2vw, 50px);
+  font-weight: 400;
+
+  line-height: 1.12;
+  letter-spacing: -0.025em;
+}
+
+.statement p em {
+  color: #c0a16b;
+
+  font-weight: 400;
+}
+
+
+/* ==========================================
+   VALUES
+========================================== */
+
+.values {
+  /* statement now creates the spacing */
+  margin-top: 0;
+}
+
+.value {
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible .value:nth-child(1) {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.62s;
+}
+
+.visible .value:nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.7s;
+}
+
+.visible .value:nth-child(3) {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.78s;
+}
+
+.valueNumber {
+  display: block;
+
+  margin-bottom: 26px;
+
+  color: #b99b67;
+
+  font-family: var(--font-heading);
+  font-size: 10px;
+
+  letter-spacing: 0.08em;
+}
+
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 900px) {
+  .statement {
+    margin-top: 75px;
+
+    grid-template-columns: 1fr;
+
+    gap: 20px;
+
+    padding: 40px 0 45px;
+  }
+
+  .statementLabel {
+    padding-top: 0;
+  }
+}
+
+@media (max-width: 650px) {
+  .copyLead {
+    font-size: 15px !important;
+  }
+
+  .statement {
+    margin-top: 60px;
+
+    padding: 35px 0 40px;
+  }
+
+  .statement p {
+    font-size: clamp(28px, 8vw, 38px);
+  }
+
+  .valueNumber {
+    margin-bottom: 12px;
+  }
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .eyebrow,
+  .line,
+  .headingLine > span,
+  .copy,
+  .statement,
+  .value {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

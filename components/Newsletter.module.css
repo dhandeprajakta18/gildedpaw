@@ -90,3 +90,151 @@
   letter-spacing: 0.15em;
   text-transform: uppercase;
 }
+/* ==========================================
+   NEWSLETTER REVEAL
+========================================== */
+
+/* HEADING */
+
+.titleLine {
+  display: block;
+  overflow: hidden;
+
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.titleLine > span {
+  display: block;
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.visible .titleLine:nth-child(1) > span {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.08s;
+}
+
+.visible .titleLine:nth-child(2) > span {
+  opacity: 1;
+  transform: translateY(0);
+
+  transition-delay: 0.16s;
+}
+
+
+/* DESCRIPTION */
+
+.description {
+  opacity: 0;
+  transform: translateY(7px);
+
+  transition:
+    opacity 0.75s ease 0.28s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.28s;
+}
+
+.visible .description {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* ==========================================
+   FORM
+========================================== */
+
+.form {
+  position: relative;
+
+  opacity: 0;
+  transform: translateY(6px);
+
+  /* remove original border because
+     we're animating it below */
+  border-bottom: none;
+
+  transition:
+    opacity 0.7s ease 0.38s,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.38s;
+}
+
+.visible .form {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* Animated underline */
+
+.form::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: 1px;
+
+  background: rgba(244, 240, 231, 0.55);
+
+  transform: scaleX(0);
+  transform-origin: left center;
+
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.45s;
+}
+
+.visible .form::after {
+  transform: scaleX(1);
+}
+
+
+/* ==========================================
+   BUTTON — MICRO INTERACTION
+========================================== */
+
+.form button {
+  transition:
+    color 0.3s ease,
+    transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.form button:hover {
+  color: #c2a46f;
+  transform: translate(2px, -1px);
+}
+
+
+/* ==========================================
+   INPUT FOCUS
+========================================== */
+
+.form:focus-within::after {
+  background: #c2a46f;
+}
+
+
+/* ==========================================
+   REDUCED MOTION
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .titleLine > span,
+  .description,
+  .form,
+  .form::after {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

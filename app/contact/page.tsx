@@ -47,11 +47,11 @@ export default function ContactPage() {
 
                   <div className={styles.socials}>
                     <a href="#" target="_blank" rel="noreferrer">
-                      Instagram ↗
+                      Instagram 
                     </a>
 
                     <a href="#" target="_blank" rel="noreferrer">
-                      Pinterest ↗
+                      Pinterest 
                     </a>
                   </div>
                 </div>
@@ -62,7 +62,7 @@ export default function ContactPage() {
             <div className={styles.formSide}>
               <div className={styles.formHeading}>
                 <span>Send an enquiry</span>
-                <span>01</span>
+                <span></span>
               </div>
 
               <form className={styles.form}>
@@ -120,7 +120,7 @@ export default function ContactPage() {
 
                 <button type="submit" className={styles.submit}>
                   <span>Send enquiry</span>
-                  <span className={styles.submitArrow}>↗</span>
+                  <span className={styles.submitArrow}></span>
                 </button>
               </form>
 
@@ -139,7 +139,7 @@ export default function ContactPage() {
       <section className={styles.infoStrip}>
         <div className={styles.infoContainer}>
           <div>
-            <span>01</span>
+            <span></span>
 
             <div>
               <small>Need help choosing?</small>
@@ -148,7 +148,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <span>02</span>
+            <span></span>
 
             <div>
               <small>Order assistance</small>
@@ -157,7 +157,7 @@ export default function ContactPage() {
           </div>
 
           <div>
-            <span>03</span>
+            <span></span>
 
             <div>
               <small>Something special?</small>

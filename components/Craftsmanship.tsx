@@ -1,26 +1,64 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import styles from "./Craftsmanship.module.css";
 
 export default function Craftsmanship() {
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.18,
+      }
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className={styles.section}>
+    <section
+      ref={sectionRef}
+      className={`${styles.section} ${
+        isVisible ? styles.visible : ""
+      }`}
+    >
       <div className={styles.imageSide}>
         <Image
           src="/images/craftsmanship.jpg"
           alt="Gilded Paw craftsmanship"
           fill
           className={styles.image}
+          sizes="(max-width: 800px) 100vw, 54vw"
         />
       </div>
 
       <div className={styles.content}>
-        {/* <span className={styles.number}>02 / CRAFT</span> */}
-
         <h2>
-          Crafted with
-          <br />
-          <em>intention.</em>
+          <span className={styles.titleLine}>
+            <span>Crafted with</span>
+          </span>
+
+          <span className={styles.titleLine}>
+            <span>
+              <em>intention.</em>
+            </span>
+          </span>
         </h2>
 
         <p className={styles.lead}>
@@ -34,7 +72,8 @@ export default function Craftsmanship() {
         </p>
 
         <Link href="/about" className={styles.link}>
-          Our approach <span>↗</span>
+          <span>Our approach</span>
+          {/* <span className={styles.arrow}></span> */}
         </Link>
       </div>
     </section>

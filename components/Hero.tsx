@@ -7,29 +7,37 @@ export default function Hero() {
     <section className={styles.hero}>
       <div className={styles.content}>
         {/* LEFT CONTENT */}
-        <div className={styles.copy}>
-          <p className={styles.eyebrow}>
-            Elevated living, for every member of the family
-          </p>
+       <div className={styles.copy}>
+  <p className={styles.eyebrow}>
+    Elevated living, for every member of the family
+  </p>
 
-          <h1>
-            Furniture for
-            <br />
-            distinguished
-            <br />
-            <em>companions.</em>
-          </h1>
+  <h1>
+    <span className={styles.titleLine}>
+      <span>Furniture for</span>
+    </span>
 
-          <p className={styles.description}>
-            Thoughtfully designed pet furniture that belongs in beautiful
-            homes. Crafted for their comfort, considered for yours.
-          </p>
+    <span className={styles.titleLine}>
+      <span>distinguished</span>
+    </span>
 
-          <Link href="/shop" className={styles.cta}>
-            <span>Explore the collection</span>
-            <span className={styles.arrow}>↗</span>
-          </Link>
-        </div>
+    <span className={styles.titleLine}>
+      <span>
+        <em>companions.</em>
+      </span>
+    </span>
+  </h1>
+
+  <p className={styles.description}>
+    Thoughtfully designed pet furniture that belongs in beautiful
+    homes. Crafted for their comfort, considered for yours.
+  </p>
+
+  <Link href="/shop" className={styles.cta}>
+    <span>Explore the collection</span>
+    {/* <span className={styles.arrow}>↗</span> */}
+  </Link>
+</div>
 
         {/* RIGHT PRODUCT */}
         <div className={styles.visual}>
@@ -37,7 +45,7 @@ export default function Hero() {
 
           <div className={styles.imageWrap}>
   <Image
-    src="/images/hero1.png"
+    src="/images/hero1.avif"
     alt="Gilded Paw premium pet furniture with pets"
     fill
     priority

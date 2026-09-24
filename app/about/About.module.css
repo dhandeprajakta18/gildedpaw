@@ -1,141 +1,441 @@
+/* =========================================================
+   GILDED PAW — ABOUT
+========================================================= */
+
 .page {
+  overflow: hidden;
+
   background: #f7f4ed;
+
   color: #39362f;
 }
+
+
+/* =========================================================
+   HERO
+========================================================= */
 
 .hero {
   width: min(92%, 1450px);
 
-  min-height: 720px;
-
   margin: 0 auto;
 
-  padding: 100px 0 55px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.eyebrow {
-  color: #978e80;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 0.18em;
+  padding: 55px 0 48px;
 }
 
 .hero h1 {
-  margin: auto 0;
+  margin: 0;
 
   font-family: var(--font-display);
 
-  font-size: clamp(85px, 11vw, 170px);
+  font-size: clamp(88px, 11vw, 168px);
   font-weight: 400;
 
-  line-height: 0.72;
-
-  letter-spacing: -0.08em;
+  line-height: 0.76;
+  letter-spacing: -0.078em;
 }
 
 .hero h1 em,
 .storyContent h2 em,
+.philosophyIntro em,
+.approachHeading h2 em,
+.closingStatement em,
 .cta em {
   color: #ad884a;
 
   font-weight: 400;
 }
 
+
+/* hero title animation */
+
+.heroLine {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.heroLine > span {
+  display: block;
+
+  transform: translateY(108%);
+
+  transition: transform 1.05s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible .heroLine:nth-child(1) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.06s;
+}
+
+.visible .heroLine:nth-child(2) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.16s;
+}
+
+
+/* hero copy */
+
 .heroBottom {
-  display: flex;
-  align-items: flex-end;
+  margin-top: 55px;
+
+  display: grid;
+  grid-template-columns: 440px 350px;
+
   justify-content: space-between;
+  align-items: end;
+
+  gap: 60px;
 }
 
 .heroBottom p {
-  max-width: 430px;
+  max-width: 440px;
 
-  color: #756e62;
+  margin: 0;
 
-  font-size: 13px;
+  color: #6f695f;
 
-  line-height: 1.8;
+  font-size: 14px;
+
+  line-height: 1.75;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.heroBottom span {
-  color: #999185;
+.heroSecondary {
+  max-width: 350px !important;
 
-  font-size: 7px;
+  color: #8a8378 !important;
 
-  letter-spacing: 0.15em;
+  font-size: 12px !important;
 
-  text-transform: uppercase;
+  line-height: 1.8 !important;
 }
+
+.visible .heroBottom p:first-child {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.3s;
+}
+
+.visible .heroBottom p:last-child {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.4s;
+}
+
+
+/* =========================================================
+   COMMON HEADING REVEAL
+========================================================= */
+
+.headingLine {
+  display: block;
+
+  overflow: hidden;
+
+  padding-bottom: 0.06em;
+  margin-bottom: -0.06em;
+}
+
+.headingLine > span {
+  display: block;
+
+  transform: translateY(105%);
+
+  transition: transform 0.95s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.visible .headingLine:nth-child(1) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.08s;
+}
+
+.visible .headingLine:nth-child(2) > span {
+  transform: translateY(0);
+
+  transition-delay: 0.17s;
+}
+
+
+/* =========================================================
+   STORY
+========================================================= */
 
 .story {
   width: min(92%, 1450px);
 
   margin: 0 auto;
 
-  padding-bottom: 120px;
+  padding: 0;
 }
+
+
+/* image touches hero section */
 
 .largeImage {
   position: relative;
 
-  height: min(65vw, 780px);
+  width: 100%;
+  height: min(61vw, 760px);
 
   overflow: hidden;
 
   background: #e8e2d7;
+
+  opacity: 0;
+
+  transition: opacity 1.1s ease;
+}
+
+.story.visible .largeImage {
+  opacity: 1;
 }
 
 .image {
   object-fit: cover;
 }
 
+
+/* story content */
+
 .storyContent {
-  padding: 80px 5% 0;
-}
-
-.storyContent > span {
-  color: #999184;
-
-  font-size: 8px;
-  font-weight: 700;
-
-  letter-spacing: 0.16em;
+  padding: 46px 5% 55px;
 }
 
 .storyContent h2 {
-  margin: 30px 0 55px;
+  max-width: 1200px;
+
+  margin: 0;
 
   font-family: var(--font-display);
 
-  font-size: clamp(50px, 6vw, 90px);
+  font-size: clamp(60px, 7vw, 105px);
   font-weight: 400;
 
   line-height: 0.9;
-
-  letter-spacing: -0.055em;
+  letter-spacing: -0.058em;
 }
 
+
+/* =========================================================
+   STORY ZIG-ZAG
+========================================================= */
+
 .storyCopy {
-  margin-left: 45%;
+  width: 72%;
+
+  margin: 42px 0 0 auto;
 
   display: grid;
   grid-template-columns: 1fr 1fr;
 
-  gap: 40px;
+  column-gap: 75px;
+  row-gap: 22px;
 }
 
 .storyCopy p {
-  color: #746d62;
+  max-width: 350px;
 
-  font-size: 12px;
+  margin: 0;
+
+  color: #716a60;
+
+  font-size: 13px;
 
   line-height: 1.8;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.75s ease,
+    translate 0.85s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+
+/* left */
+
+.storyCopy p:nth-child(odd) {
+  translate: -14px 0;
+}
+
+
+/* right */
+
+.storyCopy p:nth-child(even) {
+  translate: 14px 0;
+}
+
+
+/* stagger the actual layout */
+
+.storyCopy p:nth-child(2) {
+  margin-top: 32px;
+}
+
+.storyCopy p:nth-child(3) {
+  margin-left: 45px;
+}
+
+.storyCopy p:nth-child(4) {
+  margin-top: 32px;
+  margin-left: 20px;
+}
+
+
+/* reveal */
+
+.story.visible .storyCopy p {
+  opacity: 1;
+
+  translate: 0 0;
+}
+
+.story.visible .storyCopy p:nth-child(1) {
+  transition-delay: 0.22s;
+}
+
+.story.visible .storyCopy p:nth-child(2) {
+  transition-delay: 0.31s;
+}
+
+.story.visible .storyCopy p:nth-child(3) {
+  transition-delay: 0.4s;
+}
+
+.story.visible .storyCopy p:nth-child(4) {
+  transition-delay: 0.49s;
+}
+
+
+/* =========================================================
+   PHILOSOPHY
+========================================================= */
+
+.philosophy {
+  width: min(92%, 1450px);
+
+  margin: 0 auto;
+
+  padding: 55px 5%;
+
+  border-top: 1px solid #d8d0c3;
+}
+
+.philosophyContent {
+  width: 100%;
+}
+
+
+/* statement */
+
+.philosophyIntro {
+  max-width: 1120px;
+
+  margin: 0;
+
+  color: #39362f;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(60px, 7vw, 105px);
+  font-weight: 400;
+
+  line-height: 0.92;
+  letter-spacing: -0.058em;
+
+  opacity: 0;
+
+  transform: translateX(-14px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.philosophy.visible .philosophyIntro {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+
+/* philosophy copy */
+
+.philosophyCopy {
+  width: 68%;
+  max-width: 850px;
+
+  margin: 38px 0 0 auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+
+  gap: 75px;
+}
+
+.philosophyCopy p {
+  max-width: 350px;
+
+  margin: 0;
+
+  color: #716a60;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+
+  opacity: 0;
+
+  transition:
+    opacity 0.75s ease,
+    translate 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.philosophyCopy p:first-child {
+  translate: -12px 0;
+}
+
+.philosophyCopy p:last-child {
+  margin-top: 34px;
+
+  translate: 12px 0;
+}
+
+.philosophy.visible .philosophyCopy p {
+  opacity: 1;
+
+  translate: 0 0;
+}
+
+.philosophy.visible .philosophyCopy p:first-child {
+  transition-delay: 0.18s;
+}
+
+.philosophy.visible .philosophyCopy p:last-child {
+  transition-delay: 0.3s;
+}
+
+
+/* =========================================================
+   VALUES
+========================================================= */
 
 .values {
   width: min(92%, 1450px);
@@ -149,147 +449,740 @@
   border-bottom: 1px solid #d8d0c3;
 }
 
-.values > div {
-  min-height: 240px;
+.valueItem {
+  min-height: 230px;
 
-  padding: 30px;
+  padding: 34px 34px 38px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 
   border-right: 1px solid #d8d0c3;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.values > div:last-child {
+.valueItem:last-child {
   border-right: 0;
 }
 
-.values span {
-  color: #a1988b;
-
-  font-size: 7px;
-}
-
-.values h3 {
-  margin: 70px 0 10px;
+.valueItem h3 {
+  margin: 0 0 14px;
 
   font-family: var(--font-display);
 
-  font-size: 35px;
+  font-size: clamp(36px, 3.4vw, 52px);
   font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: -0.035em;
 }
 
-.values p {
-  color: #827a6e;
+.valueItem p {
+  max-width: 330px;
 
-  font-size: 10px;
+  margin: 0;
+
+  color: #7a7368;
+
+  font-size: 12px;
+
+  line-height: 1.75;
 }
+
+
+/* stagger */
+
+.values.visible .valueItem:nth-child(1) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.06s;
+}
+
+.values.visible .valueItem:nth-child(2) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.16s;
+}
+
+.values.visible .valueItem:nth-child(3) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.26s;
+}
+
+
+/* =========================================================
+   APPROACH
+========================================================= */
+
+.approach {
+  width: min(92%, 1450px);
+
+  margin: 0 auto;
+
+  padding: 55px 0 0;
+}
+
+.approachHeading {
+  padding: 0 5% 48px;
+}
+
+.approachHeading h2 {
+  max-width: 1100px;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(62px, 7.3vw, 108px);
+  font-weight: 400;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+}
+
+
+/* =========================================================
+   APPROACH GRID
+========================================================= */
+
+.approachGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+
+  border-top: 1px solid #d8d0c3;
+  border-bottom: 1px solid #d8d0c3;
+}
+
+.approachItem {
+  min-height: 245px;
+
+  padding: 32px 28px;
+
+  border-right: 1px solid #d8d0c3;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.approachItem:last-child {
+  border-right: 0;
+}
+
+.approachItem h3 {
+  margin: 35px 0 15px;
+
+  color: #39362f;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(30px, 2.6vw, 42px);
+  font-weight: 400;
+
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.approachItem:nth-child(even) h3 {
+  margin-top: 62px;
+}
+
+.approachItem p {
+  max-width: 260px;
+
+  margin: 0;
+
+  color: #777065;
+
+  font-size: 12px;
+
+  line-height: 1.75;
+}
+
+
+/* approach reveal */
+
+.approach.visible .approachItem:nth-child(1) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.18s;
+}
+
+.approach.visible .approachItem:nth-child(2) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.27s;
+}
+
+.approach.visible .approachItem:nth-child(3) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.36s;
+}
+
+.approach.visible .approachItem:nth-child(4) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.45s;
+}
+
+
+/* =========================================================
+   CLOSING
+========================================================= */
+
+.closing {
+  width: min(92%, 1450px);
+
+  margin: 0 auto;
+
+  padding: 55px 5%;
+
+  border-bottom: 1px solid #d8d0c3;
+}
+
+.closingStatement {
+  max-width: 1150px;
+
+  margin: 0;
+
+  color: #39362f;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(60px, 7vw, 104px);
+  font-weight: 400;
+
+  line-height: 0.91;
+  letter-spacing: -0.058em;
+}
+
+.closingStatement span {
+  display: block;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.7s ease,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.closing.visible .closingStatement span:nth-child(1) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.06s;
+}
+
+.closing.visible .closingStatement span:nth-child(2) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.14s;
+}
+
+.closing.visible .closingStatement span:nth-child(3) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.22s;
+}
+
+.closing.visible .closingStatement span:nth-child(4) {
+  opacity: 1;
+
+  transform: translateY(0);
+
+  transition-delay: 0.3s;
+}
+
+
+/* closing copy */
+
+.closingCopy {
+  max-width: 410px;
+
+  margin: 35px 0 0 auto;
+
+  opacity: 0;
+
+  transform: translateX(14px);
+
+  transition:
+    opacity 0.75s ease 0.34s,
+    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1) 0.34s;
+}
+
+.closing.visible .closingCopy {
+  opacity: 1;
+
+  transform: translateX(0);
+}
+
+.closingCopy p {
+  margin: 0;
+
+  color: #716a60;
+
+  font-size: 13px;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   CTA
+========================================================= */
 
 .cta {
   width: min(92%, 1450px);
 
   margin: 0 auto;
 
-  padding: 120px 0;
-}
-
-.cta > span {
-  color: #999184;
-
-  font-size: 8px;
-
-  letter-spacing: 0.17em;
+  padding: 55px 0 65px;
 }
 
 .cta a {
-  margin-top: 45px;
-
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
 
-  color: #3e3a33;
+  gap: 40px;
+
+  color: #39362f;
 
   font-family: var(--font-display);
 
-  font-size: clamp(70px, 9vw, 140px);
+  font-size: clamp(78px, 9.3vw, 142px);
 
-  line-height: 0.75;
-
+  line-height: 0.76;
   letter-spacing: -0.07em;
+
+  opacity: 0;
+
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.8s ease,
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cta.visible a {
+  opacity: 1;
+
+  transform: translateY(0);
 }
 
 .cta i {
-  width: 90px;
-  height: 90px;
+  width: 82px;
+  height: 82px;
+
+  flex-shrink: 0;
 
   display: grid;
   place-items: center;
+
+  margin-bottom: 10px;
 
   border-radius: 50%;
 
   background: #ad884a;
 
-  color: white;
+  color: #fff;
 
-  font-size: 25px;
+  font-family: Arial, sans-serif;
+
+  font-size: 20px;
   font-style: normal;
 
-  transition: transform 0.4s ease;
+  transition:
+    transform 0.4s cubic-bezier(0.22, 1, 0.36, 1),
+    background 0.3s ease;
 }
 
 .cta a:hover i {
   transform: rotate(45deg);
+
+  background: #96723d;
 }
 
-@media (max-width: 700px) {
-  .hero {
-    min-height: 650px;
-  }
 
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
   .hero h1 {
-    font-size: 20vw;
+    font-size: clamp(76px, 11vw, 120px);
   }
 
   .heroBottom {
-    align-items: flex-start;
-    flex-direction: column;
+    grid-template-columns: 1fr 0.75fr;
 
-    gap: 30px;
-  }
-
-  .largeImage {
-    height: 125vw;
-  }
-
-  .storyContent {
-    padding: 55px 0 0;
+    gap: 45px;
   }
 
   .storyCopy {
-    margin-left: 0;
+    width: 82%;
+
+    column-gap: 45px;
+  }
+
+  .philosophyCopy {
+    width: 78%;
+
+    gap: 45px;
+  }
+
+  .approachItem {
+    padding: 28px 20px;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .hero,
+  .story,
+  .philosophy,
+  .values,
+  .approach,
+  .closing,
+  .cta {
+    width: 90%;
+  }
+
+
+  /* HERO */
+
+  .hero {
+    padding: 38px 0 40px;
+  }
+
+  .hero h1 {
+    font-size: 18vw;
+
+    line-height: 0.82;
+    letter-spacing: -0.065em;
+  }
+
+  .heroBottom {
+    margin-top: 35px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 18px;
+  }
+
+  .heroBottom p {
+    max-width: 330px;
+
+    font-size: 12px;
+  }
+
+  .heroSecondary {
+    max-width: 285px !important;
+
+    font-size: 11px !important;
+  }
+
+
+  /* STORY */
+
+  .largeImage {
+    height: 115vw;
+    max-height: 620px;
+  }
+
+  .storyContent {
+    padding: 36px 0 42px;
+  }
+
+  .storyContent h2 {
+    font-size: 12.5vw;
+
+    line-height: 0.95;
+  }
+
+  .storyCopy {
+    width: 100%;
+
+    margin-top: 30px;
 
     grid-template-columns: 1fr;
+
+    gap: 17px;
   }
+
+  .storyCopy p {
+    max-width: 500px;
+
+    font-size: 12px;
+  }
+
+  .storyCopy p:nth-child(1),
+  .storyCopy p:nth-child(2),
+  .storyCopy p:nth-child(3),
+  .storyCopy p:nth-child(4) {
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+
+  /* PHILOSOPHY */
+
+  .philosophy {
+    padding: 40px 0;
+  }
+
+  .philosophyIntro {
+    font-size: 12vw;
+
+    line-height: 0.98;
+  }
+
+  .philosophyCopy {
+    width: 100%;
+
+    margin-top: 28px;
+
+    grid-template-columns: 1fr;
+
+    gap: 17px;
+  }
+
+  .philosophyCopy p {
+    max-width: 500px;
+
+    font-size: 12px;
+  }
+
+  .philosophyCopy p:last-child {
+    margin-top: 0;
+  }
+
+
+  /* VALUES */
 
   .values {
     grid-template-columns: 1fr;
   }
 
-  .values > div {
-    min-height: 180px;
+  .valueItem {
+    min-height: 170px;
+
+    padding: 26px 4px;
 
     border-right: 0;
     border-bottom: 1px solid #d8d0c3;
   }
 
-  .values h3 {
-    margin-top: 45px;
+  .valueItem:last-child {
+    border-bottom: 0;
+  }
+
+  .valueItem h3 {
+    margin-bottom: 10px;
+
+    font-size: 36px;
+  }
+
+  .valueItem p {
+    max-width: 330px;
+
+    font-size: 11px;
+  }
+
+
+  /* APPROACH */
+
+  .approach {
+    padding-top: 40px;
+  }
+
+  .approachHeading {
+    padding: 0 0 35px;
+  }
+
+  .approachHeading h2 {
+    font-size: 12.5vw;
+
+    line-height: 0.95;
+  }
+
+  .approachGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .approachItem {
+    min-height: 170px;
+
+    padding: 26px 4px;
+
+    border-right: 0;
+    border-bottom: 1px solid #d8d0c3;
+  }
+
+  .approachItem:last-child {
+    border-bottom: 0;
+  }
+
+  .approachItem h3,
+  .approachItem:nth-child(even) h3 {
+    margin: 30px 0 10px;
+
+    font-size: 34px;
+  }
+
+  .approachItem p {
+    max-width: 330px;
+
+    font-size: 11px;
+  }
+
+
+  /* CLOSING */
+
+  .closing {
+    padding: 40px 0;
+  }
+
+  .closingStatement {
+    font-size: 12vw;
+
+    line-height: 0.96;
+  }
+
+  .closingCopy {
+    max-width: 310px;
+
+    margin-top: 28px;
+  }
+
+  .closingCopy p {
+    font-size: 12px;
+  }
+
+
+  /* CTA */
+
+  .cta {
+    padding: 40px 0 52px;
   }
 
   .cta a {
-    font-size: 18vw;
+    gap: 15px;
+
+    font-size: 15.5vw;
+
+    line-height: 0.82;
   }
 
   .cta i {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
+
+    margin-bottom: 4px;
+
+    font-size: 15px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 430px) {
+  .hero h1 {
+    font-size: 17.5vw;
+  }
+
+  .storyContent h2,
+  .approachHeading h2 {
+    font-size: 12vw;
+  }
+
+  .philosophyIntro {
+    font-size: 11.5vw;
+  }
+
+  .closingStatement {
+    font-size: 11.5vw;
+  }
+
+  .cta a {
+    font-size: 15vw;
+  }
+
+  .cta i {
+    width: 44px;
+    height: 44px;
+
+    font-size: 14px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .heroLine > span,
+  .heroBottom p,
+  .largeImage,
+  .headingLine > span,
+  .storyCopy p,
+  .philosophyIntro,
+  .philosophyCopy p,
+  .valueItem,
+  .approachItem,
+  .closingStatement span,
+  .closingCopy,
+  .cta a {
+    opacity: 1;
+
+    transform: none;
+    translate: none;
+
+    transition: none;
   }
 }

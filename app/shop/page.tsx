@@ -40,7 +40,7 @@ const products: Product[] = [
     category: "Sleep Collection",
     pet: "cats",
     price: "₹12,500",
-    image: "/products/Manorbed.png",
+    image: "/products/manor.png",
   },
   {
     name: "The Kensington Harness",
